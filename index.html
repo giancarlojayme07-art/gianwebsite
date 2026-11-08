@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio of Gian Carlo D. Jayme, aspiring IT professional.">
+    <title>Gian Carlo D. Jayme | Portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --bg: #080b14;
+            --card: #111827;
+            --card-light: #172236;
+            --accent: #38bdf8;
+            --purple: #8b5cf6;
+            --white: #f8fafc;
+            --gray: #94a3b8;
+            --border: rgba(148, 163, 184, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        section {
+            padding: 100px 9%;
+            scroll-margin-top: 75px;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            width: 100%;
+            padding: 18px 9%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 11, 20, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--gray);
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .welcome {
+            display: inline-block;
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 30px;
+            padding: 7px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 68px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero h3 {
+            color: var(--gray);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--gray);
+            max-width: 550px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            color: #080b14;
+        }
+
+        .secondary-btn {
+            border: 1px solid var(--border);
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+        }
+
+        .hero-image {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
+        }
+
+        .image-decoration {
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            border: 2px dashed var(--purple);
+            border-radius: 50%;
+            top: -15px;
+            left: -15px;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* GENERAL SECTIONS */
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading small {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .section-heading h2 {
+            font-size: 36px;
+            margin-top: 10px;
+        }
+
+        .section-heading p {
+            color: var(--gray);
+            margin-top: 10px;
+        }
+
+        /* ABOUT */
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 28px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: var(--accent);
+            background: var(--card-light);
+        }
+
+        .card-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* SKILLS */
+
+        .skills-container {
+            max-width: 800px;
+            margin: auto;
+            display: grid;
+            gap: 25px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .skill-info span:last-child {
+            color: var(--accent);
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 9px;
+            background: var(--card-light);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            width: var(--level);
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            border-radius: 20px;
+        }
+
+        /* PROJECTS */
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--purple);
+        }
+
+        .project-card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 5px 12px;
+            background: rgba(139, 92, 246, 0.15);
+            color: #bba5ff;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        /* GOALS */
+
+        .goals-box {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #111827, #172236);
+            border: 1px solid var(--border);
+        }
+
+        .goals-box p {
+            color: var(--gray);
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            max-width: 750px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contact-links a {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 13px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid var(--border);
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        /* BACK TO TOP */
+
+        .back-to-top {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            color: #080b14;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 5px 20px rgba(56, 189, 248, 0.25);
+            transition: 0.3s;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+                padding-top: 70px;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .profile-img {
+                width: 230px;
+                height: 230px;
+            }
+
+            .image-decoration {
+                width: 260px;
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .section-heading h2 {
+                font-size: 29px;
+            }
+
+            .about-content,
+            .goals-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- NAVIGATION -->
+    <header>
+        <a href="#top" class="logo">GIAN<span>.</span></a>
+
+        <nav>
+            <a href="#top">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#hobbies">Hobbies</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+            <span class="welcome">WELCOME TO MY PERSONAL PORTFOLIO</span>
+
+            <h1>Hello, I'm <span>Gian Carlo D. Jayme</span></h1>
+
+            <h3>Aspiring IT Professional | Future Full Stack Web Developer</h3>
+
+            <p>
+                A passionate learner interested in computers, programming,
+                and technology. I enjoy discovering new things, solving
+                problems, and developing my technical skills.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn primary-btn">Discover More</a>
+                <a href="#contact" class="btn secondary-btn">Contact Me</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="image-decoration"></div>
+            <img src="profile-photo.jpg"
+                 alt="Gian Carlo D. Jayme"
+                 class="profile-img">
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-heading">
+            <small>Introduction</small>
+            <h2>About Me</h2>
+            <p>Get to know more about me.</p>
+        </div>
+
+        <div class="about-content">
+            <p>
+                My name is Gian Carlo D. Jayme. I graduated from Senior High
+                School under the Computer Systems Servicing (CSS) strand at
+                Victorias National High School. I am also a Computer Systems
+                Servicing NC II passer.
+            </p>
+
+            <p>
+                I am currently pursuing my college education and continuously
+                improving my knowledge in information technology. I am
+                interested in programming, computer hardware, networking,
+                and web development.
+            </p>
+
+            <p>
+                I believe that every challenge is an opportunity to learn.
+                My goal is to become a skilled IT professional and make
+                my family proud through my achievements.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <div class="section-heading">
+            <small>My Background</small>
+            <h2>Education & Certification</h2>
+            <p>My academic journey and achievements.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🎓</div>
+                <h3>Senior High School</h3>
+                <p>Victorias National High School</p>
+                <p>Computer Systems Servicing (CSS) Strand</p>
+                <p>Graduate</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏅</div>
+                <h3>Certification</h3>
+                <p>Computer Systems Servicing NC II</p>
+                <p>TESDA Certification Passer</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>College Education</h3>
+                <p>Currently pursuing college education.</p>
+                <p>Continuously learning and developing new skills.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-heading">
+            <small>What I Can Do</small>
+            <h2>My Skills</h2>
+            <p>Technical skills I am learning and developing.</p>
+        </div>
+
+        <div class="skills-container">
+
+            <div>
+                <div class="skill-info">
+                    <span>HTML</span>
+                    <span>Learning</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="--level: 65%;"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skill-info">
+                    <span>Java Programming</span>
+                    <span>Learning</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="--level: 45%;"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skill-info">
+                    <span>Computer Troubleshooting</span>
+                    <span>Basic</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="--level: 65%;"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skill-info">
+                    <span>Computer Networking</span>
+                    <span>Basic</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="--level: 55%;"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="section-heading">
+            <small>My Work</small>
+            <h2>My Projects</h2>
+            <p>Some projects and activities I have worked on.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="project-card">
+                <h3>Personal Portfolio Website</h3>
+                <p>
+                    A personal website that introduces my background,
+                    education, technical skills, hobbies, and goals.
+                </p>
+                <span class="project-tag">HTML & CSS</span>
+            </div>
+
+            <div class="project-card">
+                <h3>Student Grade Calculator</h3>
+                <p>
+                    A beginner Java program that accepts student grades,
+                    calculates the average, and displays the result.
+                </p>
+                <span class="project-tag">Java</span>
+            </div>
+
+            <div class="project-card">
+                <h3>Basic Computer Servicing</h3>
+                <p>
+                    School activities involving computer hardware,
+                    troubleshooting, maintenance, and networking.
+                </p>
+                <span class="project-tag">Computer Systems Servicing</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HOBBIES -->
+    <section id="hobbies">
+
+        <div class="section-heading">
+            <small>Things I Enjoy</small>
+            <h2>My Hobbies & Interests</h2>
+            <p>Activities I enjoy during my free time.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Exploring Technology</h3>
+                <p>
+                    Discovering computers, applications, and new technologies.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⌨️</div>
+                <h3>Programming</h3>
+                <p>
+                    Practicing coding and creating simple programs.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎮</div>
+                <h3>Online Gaming</h3>
+                <p>
+                    Playing online games during my free time.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📖</div>
+                <h3>Reading Manhwa</h3>
+                <p>
+                    Enjoying different manhwa stories, exploring interesting
+                    characters, and discovering new genres.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎧</div>
+                <h3>Listening to Music</h3>
+                <p>
+                    Listening to my favorite music, discovering new songs,
+                    and enjoying different music genres.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎬</div>
+                <h3>Watching Movies</h3>
+                <p>
+                    Watching movies and enjoying different stories and genres.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GOALS -->
+    <section id="goals">
+
+        <div class="section-heading">
+            <small>My Dreams</small>
+            <h2>Future Goals</h2>
+        </div>
+
+        <div class="goals-box">
+            <h3 style="color: var(--accent); margin-bottom: 18px;">
+                Building a Better Future
+            </h3>
+
+            <p>
+                My biggest dream is to become a successful IT professional.
+                I want to finish my education, improve my programming skills,
+                gain more experience, and build a career in technology.
+            </p>
+
+            <br>
+
+            <p>
+                My father is one of my biggest inspirations. His hard work
+                motivates me to study harder, achieve my dreams, and give
+                back to my family someday.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="section-heading">
+            <small>Get In Touch</small>
+            <h2>Contact Me</h2>
+            <p>Feel free to connect with me through these platforms.</p>
+        </div>
+
+        <div class="contact-box">
+
+            <p>
+                Thank you for visiting my personal portfolio.
+                You can reach me through the links below.
+            </p>
+
+            <div class="contact-links">
+
+                <a href="mailto:giancarlojayme07@gmail.com">
+                    ✉ Email Me
+                </a>
+
+                <a href="https://www.facebook.com/gian2727"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Facebook
+                </a>
+
+                <a href="https://github.com/giancarlojayme07-art"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Gian Carlo D. Jayme. All Rights Reserved.</p>
+        <p>Designed and Developed with HTML and CSS.</p>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
+            aria-label="Back to top"
+            title="Back to Top">
+        ↑
+    </button>
+
+</body>
+</html>
